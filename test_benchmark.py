@@ -4,9 +4,9 @@ import time
 import numpy as np  # noqas
 import pysos  # noqa
 
-from numstore import Dict
+import numstore
 
-items = 99 * 1000 * 1000
+items = 999 * 1000 * 1000
 
 
 def benchmark(module: str, db):
@@ -36,9 +36,10 @@ def benchmark(module: str, db):
     print(f"[{module}] reads: {int(10000 / dt)} / second\n")
 
 
-db_numstore: Dict = Dict(length=8)
+db_numstore: numstore.Dict = numstore.Dict(length=9)
 benchmark(module="numstore".ljust(10), db=db_numstore)
 db_numstore.save()
+time.sleep(10000)
 del db_numstore
 
 db_numpy: np.ndarray = np.empty(items)

@@ -23,9 +23,10 @@ buffer[200] = 2
 buffer[300] = 3
 del buffer[100]
 
-print('get_method      ', buffer.get(200))
-print("check_contains  ", 100 in buffer)
-print("check_bool      ", True if buffer else False)
+print('get by index    ', buffer.get(200))
+print('get method      ', buffer.get(300))
+print("check contains  ", 100 in buffer)
+print("check bool      ", True if buffer else False)
 print("len(buffer)     ", len(buffer))
 print("buffer.pop(200) ", buffer.pop(200))
 print("all keys        ", list(buffer.keys()))
@@ -37,16 +38,16 @@ print("len(buffer)     ", len(buffer))
 buffer.save("test.pkl")  # save dictionary in file
 buffer.load("test.pkl")  # load dictionary from file
 
-# keys and values can be specified as a string
+# keys and values can be specified as a string (but these strings must contain numbers)
 buffer["400"] = "4"
 
-buffer = Dict(length=3, raise_index_error=False)
-# but these strings must contain numbers
-buffer["a"] = "1"  # NOT WORKING (key is not number) (show UserWarning in stdout)
-buffer["1"] = "a"  # NOT WORKING (value is not number) (show UserWarning in stdout)
-buffer["-1"] = 1  # NOT WORKING (negative key) (show UserWarning in stdout)
-buffer[1] = -11  # NOT WORKING (not allowed value) (show UserWarning in stdout)
-buffer[123456789] = 1  # NOT WORKING (max length=3) (show UserWarning in stdout)
+# # Examples of misuse
+# buffer = Dict(length=3, raise_index_error=False)
+# buffer["a"] = "1"  # NOT WORKING (key is not number) (show UserWarning in stdout)
+# buffer["1"] = "a"  # NOT WORKING (value is not number) (show UserWarning in stdout)
+# buffer["-1"] = 1  # NOT WORKING (negative key) (show UserWarning in stdout)
+# buffer[1] = -11  # NOT WORKING (not allowed value) (show UserWarning in stdout)
+# buffer[123456789] = 1  # NOT WORKING (max length=3) (show UserWarning in stdout)
 
 """
 
@@ -345,9 +346,10 @@ if __name__ == "__main__":
     buffer[300] = 3
     del buffer[100]
 
-    print('get_method      ', buffer.get(200))
-    print("check_contains  ", 100 in buffer)
-    print("check_bool      ", True if buffer else False)
+    print('get by index    ', buffer.get(200))
+    print('get method      ', buffer.get(300))
+    print("check contains  ", 100 in buffer)
+    print("check bool      ", True if buffer else False)
     print("len(buffer)     ", len(buffer))
     print("buffer.pop(200) ", buffer.pop(200))
     print("all keys        ", list(buffer.keys()))
@@ -359,11 +361,11 @@ if __name__ == "__main__":
     buffer.save("test.pkl")  # save dictionary in file
     buffer.load("test.pkl")  # load dictionary from file
 
-    # keys and values can be specified as a string
+    # keys and values can be specified as a string (but these strings must contain numbers)
     buffer["400"] = "4"
 
-    buffer = Dict(length=3, raise_index_error=False)
-    # # but these strings must contain numbers
+    # # Examples of misuse
+    # buffer = Dict(length=3, raise_index_error=False)
     # buffer["a"] = "1"  # NOT WORKING (key is not number) (show UserWarning in stdout)
     # buffer["1"] = "a"  # NOT WORKING (value is not number) (show UserWarning in stdout)
     # buffer["-1"] = 1  # NOT WORKING (negative key) (show UserWarning in stdout)
