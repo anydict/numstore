@@ -1,4 +1,8 @@
-# numstore
+<h1 align="center">
+<img src="https://raw.githubusercontent.com/anydict/numstore/main/logo/numstorelogo.svg" width="300">
+</h1><br>
+
+Source code: https://github.com/anydict/numstore
 
 Numstore - fast and easy key-value storage in RAM. It only works with numbers keys and numbers values.
 
