@@ -23,8 +23,8 @@ buffer[200] = 2
 buffer[300] = 3
 del buffer[100]
 
-print('get by index    ', buffer.get(200))
-print('get method      ', buffer.get(300))
+print("get by index    ", buffer[200])
+print("get method      ", buffer.get(300))
 print("check contains  ", 100 in buffer)
 print("check bool      ", True if buffer else False)
 print("len(buffer)     ", len(buffer))
@@ -32,7 +32,7 @@ print("buffer.pop(200) ", buffer.pop(200))
 print("all keys        ", list(buffer.keys()))
 print("all values      ", list(buffer.values()))
 print("all items       ", list(buffer.items()))
-buffer.clear()
+print("clear           ", buffer.clear())
 print("len(buffer)     ", len(buffer))
 
 buffer.save("test.pkl")  # save dictionary in file
@@ -346,8 +346,8 @@ if __name__ == "__main__":
     buffer[300] = 3
     del buffer[100]
 
-    print('get by index    ', buffer.get(200))
-    print('get method      ', buffer.get(300))
+    print("get by index    ", buffer[200])
+    print("get method      ", buffer.get(300))
     print("check contains  ", 100 in buffer)
     print("check bool      ", True if buffer else False)
     print("len(buffer)     ", len(buffer))
@@ -355,7 +355,7 @@ if __name__ == "__main__":
     print("all keys        ", list(buffer.keys()))
     print("all values      ", list(buffer.values()))
     print("all items       ", list(buffer.items()))
-    buffer.clear()
+    print("clear           ", buffer.clear())
     print("len(buffer)     ", len(buffer))
 
     buffer.save("test.pkl")  # save dictionary in file

@@ -6,24 +6,24 @@ import pysos  # noqa
 
 import numstore
 
-items = 999 * 1000 * 1000
+items = 1 * 1000 * 1000
 
 
 def benchmark(module: str, db):
-    t = time.time()
+    t = time.monotonic()
     for i in range(items):
         if i % 2 == 0:
             db[i] = str(i)[-1:]
         else:
             db[i] = str(i)[-1:]
-    dt = time.time() - t
+    dt = time.monotonic() - t
 
     print(f"[{module}] write: {int(items / dt)} / second")
 
     random_keys = [random.randint(0, items - 1) for _ in range(0, 10000)]
     data = []
 
-    t = time.time()
+    t = time.monotonic()
     if isinstance(db, dict):
         for i in random_keys:
             data.append(db.get(i))
@@ -31,15 +31,14 @@ def benchmark(module: str, db):
         for i in random_keys:
             data.append(db[i])
 
-    dt = time.time() - t
+    dt = time.monotonic() - t
 
     print(f"[{module}] reads: {int(10000 / dt)} / second\n")
 
 
-db_numstore: numstore.Dict = numstore.Dict(length=9)
+db_numstore: numstore.Dict = numstore.Dict(length=6)
 benchmark(module="numstore".ljust(10), db=db_numstore)
 db_numstore.save()
-time.sleep(10000)
 del db_numstore
 
 db_numpy: np.ndarray = np.empty(items)

@@ -8,7 +8,7 @@ Numstore - fast and easy key-value storage in RAM. It only works with numbers ke
 
 This is an ideal solution if you need to store a small integer value for a huge number of integer keys.
 <p><b>It is high performance and low RAM consumption.</b></p>
-For example: if you fill the dictionary with 999999999 keys, it will take about 800 megabytes in memory
+For example: if you fill the dictionary with 999999999 keys, it will take about 899 megabytes in memory
 
 Limits on use:
 
@@ -34,8 +34,8 @@ buffer[200] = 2
 buffer[300] = 3
 del buffer[100]
 
-print('get by index    ', buffer.get(200))
-print('get method      ', buffer.get(300))
+print("get by index    ", buffer[200])
+print("get method      ", buffer.get(300))
 print("check contains  ", 100 in buffer)
 print("check bool      ", True if buffer else False)
 print("len(buffer)     ", len(buffer))
@@ -43,7 +43,7 @@ print("buffer.pop(200) ", buffer.pop(200))
 print("all keys        ", list(buffer.keys()))
 print("all values      ", list(buffer.values()))
 print("all items       ", list(buffer.items()))
-buffer.clear()
+print("clear           ", buffer.clear())
 print("len(buffer)     ", len(buffer))
 
 buffer.save("test.pkl")  # save dictionary in file
@@ -87,8 +87,8 @@ Performance
 
 | module   | Speed writes     | Speed random reads | Memory for one hundred million records |
 |----------|------------------|--------------------|----------------------------------------|
-| numstore | 663046 / second  | 900838 / second    | 800 Mb                                 |
-| numpy    | 5425987 / second | 6841141 / second   | 8000 Mb                                |
+| numstore | 643016 / second  | 820369 / second    | 899 Mb                                 |
+| numpy    | 5229830 / second | 6356026 / second   | 8000 Mb                                |
 | dict     | out of memory    | out of memory      | out of memory                          |
 | pysos    | out of memory    | out of memory      | out of memory                          |
 
@@ -97,5 +97,5 @@ F.A.Q.
 
 ### Is it thread safe?
 
-No. It's not thread safe.
+No. It is not thread safe.
 In practice, synchronization mechanisms are typically desired on a higher level anyway.
