@@ -8,7 +8,7 @@ Numstore - fast and easy key-value storage in RAM. It only works with numbers ke
 
 This is an ideal solution if you need to store a small integer value for a huge number of integer keys.
 <p><b>It is high performance and low RAM consumption.</b></p>
-For example: if you fill the dictionary with 999999999 keys, it will take about 899 megabytes in memory
+For example: if you fill the dictionary with 99999999 keys, it will take about 899 megabytes in memory
 
 Limits on use:
 

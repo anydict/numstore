@@ -8,7 +8,7 @@ def readme():
 
 setup(
     name='numstore',
-    version='1.2.5',
+    version='1.2.6',
     author='anydict',
     author_email='novi4kom@gmail.com',
     license='MIT',
